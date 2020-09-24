@@ -1,5 +1,4 @@
-from tkinter import Tk
-from tkinter.ttk import Label, Button, Frame, Widget
+from tkinter import Tk, Label, Widget, Button, Frame
 from typing import Union
 
 
@@ -18,7 +17,7 @@ class VNode:
         self.children = children
 
     def __str__(self):
-        return f'Node(type_name={self.type_name},props={self.props},events={self.events},children={self.children},)'
+        return f'Node(type_name={self.type_name},props={self.props},events={self.events},children={[str(c) for c in self.children]})'
 
 
 def create_text_element(text: str) -> VNode:
@@ -46,7 +45,13 @@ def create_tk_widget(name: str, parent: Widget) -> Widget:
         return Frame(master=parent)
 
 
-prop_map = {}
+prop_map = {
+    'margin_x': 'padx',
+    'margin_y': 'pady',
+    'padding_x': 'ipadx',
+    'padding_y': 'ipady',
+    'color': 'fg'
+}
 
 event_map = {
     'click': 'command'

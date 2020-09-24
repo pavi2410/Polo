@@ -18,7 +18,7 @@ def ui():
     return frame()(
         "Hello World",
         label(text='Count is ' + str(count())),
-        button(text="Click Me", padding=8, width=16, on_click=lambda: update_counter())
+        button(text="Click Me", margin_x=8, margin_y=8, width=16, background='red', color='white', on_click=lambda: update_counter())
     )
 
 
