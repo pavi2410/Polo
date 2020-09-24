@@ -1,16 +1,13 @@
-import ReactiPy
+from ReactiPy import create_element
 
 
 def frame(**props):
-    def ch(*children):
-        return ReactiPy.create_element('frame', props, *children)
-
-    return ch
+    return lambda *children: create_element('frame', props, *children)
 
 
 def label(**props):
-    return ReactiPy.create_element('label', props)
+    return create_element('label', props)
 
 
 def button(**props):
-    return ReactiPy.create_element('button', props)
+    return create_element('button', props)
